@@ -1,0 +1,11 @@
+# Ignore build output
+Debug/
+Release/
+
+# Ignore IDE-specific settings
+.settings/
+.metadata/
+
+# Ignore backup files
+*.launch
+*.log
