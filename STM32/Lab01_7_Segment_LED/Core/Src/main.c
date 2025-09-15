@@ -164,99 +164,27 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 void display7SEG(int num) {
-	switch (num) {
-	case 1:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 1);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 1);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 1);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 1);
-		break;
-	case 2:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 1);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 0);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 1);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 3:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 1);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 4:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 1);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 1);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 5:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 1);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 6:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 1);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 0);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 7:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 1);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 1);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 1);
-		break;
-	case 8:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 0);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	case 9:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 1);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 0);
-		break;
-	default:
-		HAL_GPIO_WritePin(a_GPIO_Port, a_Pin, 0);
-		HAL_GPIO_WritePin(b_GPIO_Port, b_Pin, 0);
-		HAL_GPIO_WritePin(c_GPIO_Port, c_Pin, 0);
-		HAL_GPIO_WritePin(d_GPIO_Port, d_Pin, 0);
-		HAL_GPIO_WritePin(e_GPIO_Port, e_Pin, 0);
-		HAL_GPIO_WritePin(f_GPIO_Port, f_Pin, 0);
-		HAL_GPIO_WritePin(g_GPIO_Port, g_Pin, 1);
-		break;
-	}
 
+    const uint8_t seg_pattern[10][7] = {
+        {0,0,0,0,0,0,1}, // 0
+        {1,0,0,1,1,1,1}, // 1
+        {0,0,1,0,0,1,0}, // 2
+        {0,0,0,0,1,1,0}, // 3
+        {1,0,0,1,1,0,0}, // 4
+        {0,1,0,0,1,0,0}, // 5
+        {0,1,0,0,0,0,0}, // 6
+        {0,0,0,1,1,1,1}, // 7
+        {0,0,0,0,0,0,0}, // 8
+        {0,0,0,0,1,0,0}  // 9
+    };
+
+    uint16_t pins[7] = {a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin};
+
+    if (num < 0 || num > 9) num = 0;
+
+    for (int i = 0; i < 7; i++) {
+        HAL_GPIO_WritePin(GPIOB, pins[i], seg_pattern[num][i]);
+    }
 }
 /* USER CODE END 4 */
 
