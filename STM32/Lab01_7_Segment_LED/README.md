@@ -1,4 +1,4 @@
-# STM32 – 7-Segment Display Example
+# Lab 01 – Ex04: 7 Segment LED (STM32)
 
 This project demonstrates how to control a single 7-segment LED display using an STM32 microcontroller with HAL libraries.
 
